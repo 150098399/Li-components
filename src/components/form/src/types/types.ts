@@ -13,8 +13,8 @@ export interface FormOptions {
   prop?: string,
   // 表单项的校验规则
   rules?: RuleItem,
-  // 表单元素特有的属性
   // 表单项的placeholder
   placeholder?: string,
+  // 表单元素特有的属性
   attrs: any
 }
