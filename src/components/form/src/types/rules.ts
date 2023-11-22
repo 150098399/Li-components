@@ -1,3 +1,4 @@
+// from: https://github.com/yiminghe/async-validator/blob/master/src/interface.ts#L46
 export type RuleType =
   | 'string'
   | 'number'
