@@ -161,7 +161,6 @@ const clickProvince = (item: string) => {
 
 // 点击字母
 const clickChat = (item: string) => {
-  debugger;
   const el = document.getElementById(item);
   if (el) {
     el.scrollIntoView();
