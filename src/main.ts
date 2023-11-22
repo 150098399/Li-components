@@ -13,7 +13,7 @@ import mUI from './components'
 const app = createApp(App)
 
 // 全局注册icon
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {  
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(`el-icon-${toLine(key)}`, component)
 }
 app.use(router).use(ElementPlus).use(mUI)
