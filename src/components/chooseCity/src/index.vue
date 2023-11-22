@@ -23,13 +23,19 @@
           </el-radio-group>
         </el-col>
         <el-col :offset="1" :span="15">
-          <el-select v-model="selectValue" placeholder="Select" size="small">
+          <el-select
+            v-model="selectValue"
+            placeholder="请搜索城市"
+            size="small"
+            filterable
+            :filter-method="filterMethod"
+            @change="changeSelect"
+          >
             <el-option
               v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-              :disabled="item.disabled"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
             />
           </el-select>
         </el-col>
@@ -106,7 +112,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import city from '../lib/city';
 import { City } from './types';
 import province from '../lib/province.json';
@@ -121,29 +127,10 @@ const selectValue = ref<string>('');
 const cities = ref(city.cities);
 // 所有省份数据
 const provinces = ref(province);
-const options = [
-  {
-    value: 'Option1',
-    label: 'Option1',
-  },
-  {
-    value: 'Option2',
-    label: 'Option2',
-    disabled: true,
-  },
-  {
-    value: 'Option3',
-    label: 'Option3',
-  },
-  {
-    value: 'Option4',
-    label: 'Option4',
-  },
-  {
-    value: 'Option5',
-    label: 'Option5',
-  },
-];
+const options = ref<City[]>([]);
+
+// 暂存处理过的所有城市数据
+const allCity = ref<City[]>([]);
 
 // 按字母-点击城市
 const clickItem = (item: City) => {
@@ -166,6 +153,43 @@ const clickChat = (item: string) => {
     el.scrollIntoView();
   }
 };
+
+// 搜索
+const filterMethod = (val: string) => {
+  const values = Object.values(cities.value).flat(Infinity) as City[];
+  if (val === '') {
+    options.value = values;
+  } else {
+    if (radioValue.value === '按城市') {
+      // 中英文过滤
+      options.value = values.filter((item) => {
+        return item.name.includes(val) || item.spell.includes(val);
+      });
+    } else {
+      // 中文过滤
+      options.value = values.filter((item) => {
+        return item.name.includes(val);
+      });
+    }
+  }
+};
+
+const changeSelect = (val: number) => {
+  const city = allCity.value.find((item) => item.id === val)!;
+  result.value = city.name;
+  if (radioValue.value === '按城市') {
+    emits('changeCity', city);
+  } else {
+    emits('changeProvince', city.name);
+  }
+};
+
+onMounted(() => {
+  // 获取下拉框城市数据
+  const values = Object.values(cities.value).flat(Infinity) as City[];
+  options.value = values;
+  allCity.value = values;
+});
 </script>
 
 <style lang="scss" scoped>
