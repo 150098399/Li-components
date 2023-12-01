@@ -1,0 +1,16 @@
+{
+  "name": "m-components",
+  "version": "1.0.0",
+  "main": "index.umd.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "author": {
+    "name": "lilongjie"
+  },
+  "keywords": [
+    "element-plus",
+    "封装组件",
+    "二次封装",
+    "vue3"
+  ]
+}
