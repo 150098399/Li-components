@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { defineConfig, build } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import fsExtra from 'fs-extra'
 
 import path from 'path'
-import fs from 'fs'
+import * as fs from "fs";
 
 import { fileURLToPath } from 'url'
 
@@ -78,18 +79,23 @@ const createPackageJson = (name) => {
       "style": "style.css"
     }
   `
-  fsExtra.outputFile(path.relative(outDir, `${name}package.json`), fileStr, 'utf-8')
+  fsExtra.outputFile(path.resolve(outDir, `${name}/package.json`), fileStr, 'utf-8')
 }
 
 const buildLib = async () => {
   await buildAll()
 
+  console.log("-------------------------------------------------------------");
+  console.log("aaaa", fs.readdirSync(entryDir));
+
   // 获取组件名称
-  const components = fs.readFileSync(entryDir).filter(name => {
+  const components = fs.readdirSync(entryDir).filter(name => {
+
     const componendDir = path.resolve(entryDir, name)
     const isDir = fs.lstatSync((componendDir)).isDirectory()
-    return isDir && fs.readFileSync(componendDir).includes('index.ts')
+    return isDir && fs.readdirSync(componendDir).includes('index.ts')
   })
+
 
   // 循环构建
   for (const name of components) {
