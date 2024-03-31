@@ -8,6 +8,7 @@ import { toLine } from "./utils/index";
 import "normalize.css";
 import "./assets/css/index.scss";
 import mUI from "./components";
+import "./mock";
 
 // 全量打包测试
 // import mUI from "../lib/m-components";
