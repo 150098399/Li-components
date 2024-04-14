@@ -1,2 +1,2 @@
-# m-components
+# Li-components
 component encapsulation practice
