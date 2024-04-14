@@ -10,6 +10,7 @@ import chooseTime from "./chooseTime";
 import chooseDate from "./choseDate";
 import chooseCity from "./chooseCity";
 import form from "./form";
+import table from './table'
 import "./css/index.scss";
 
 const components = [
@@ -24,6 +25,7 @@ const components = [
   chooseDate,
   chooseCity,
   form,
+  table
 ];
 
 export default {

@@ -1,3 +1,4 @@
+.
 <template>
   <div>
     <el-select clearable placeholder="请选择省份" v-model="province">
@@ -39,8 +40,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
-import allAreas from '../lib/pca-code.json';
+import { ref, watch } from "vue";
+import allAreas from "../lib/pca-code.json";
 
 export interface AreaItem {
   name: string;
@@ -53,9 +54,9 @@ export interface Data {
   code: string;
 }
 
-const province = ref<string>('');
-const city = ref<string>('');
-const area = ref<string>('');
+const province = ref<string>("");
+const city = ref<string>("");
+const area = ref<string>("");
 const areas = ref(allAreas);
 
 const selectCity = ref<AreaItem[]>([]);
@@ -63,7 +64,7 @@ const selectCity = ref<AreaItem[]>([]);
 const selectArea = ref<AreaItem[]>([]);
 
 // 分发事件给父组件
-const emits = defineEmits(['change']);
+const emits = defineEmits(["change"]);
 
 watch(
   () => province.value,
@@ -73,8 +74,8 @@ watch(
         .children!;
       selectCity.value = citys;
     }
-    city.value = '';
-    area.value = '';
+    city.value = "";
+    area.value = "";
   }
 );
 
@@ -86,7 +87,7 @@ watch(
         .children!;
       selectArea.value = areas;
     }
-    area.value = '';
+    area.value = "";
   }
 );
 
@@ -112,7 +113,7 @@ watch(
         area.value && selectArea.value.find((item) => item.code === val)!.name,
     };
 
-    emits('change', {
+    emits("change", {
       province: provinceData,
       city: cityData,
       area: areaData,

@@ -39,8 +39,8 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from "vue";
-import { toLine } from "../../utils";
+import { PropType } from 'vue';
+import { toLine } from '../../utils';
 
 const props = defineProps({
   data: {
@@ -50,7 +50,7 @@ const props = defineProps({
 
   defaultActive: {
     type: String,
-    default: "",
+    default: '',
   },
 
   router: {
@@ -61,22 +61,22 @@ const props = defineProps({
   // 菜单标题键名
   name: {
     type: String,
-    default: "name",
+    default: 'name',
   },
   // 菜单标识键名
   index: {
     type: String,
-    default: "index",
+    default: 'index',
   },
   // 菜单图标键名
   icon: {
     type: String,
-    default: "icon",
+    default: 'icon',
   },
   // 子菜单键名
   children: {
     type: String,
-    default: "children",
+    default: 'children',
   },
 });
 </script>

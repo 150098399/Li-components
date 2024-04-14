@@ -22,22 +22,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import * as ElIcons from "@element-plus/icons-vue";
-import { toLine } from "../../utils/index";
-import { useCopy } from "../../hooks/useCopy/index";
+import { ref, watch } from 'vue';
+import * as ElIcons from '@element-plus/icons-vue';
+import { toLine } from '../../utils';
+import { useCopy } from '../../hooks/useCopy/index';
 
 const props = defineProps<{
   title: string;
   visible: boolean;
 }>();
 
-const emits = defineEmits(["update:visible"]);
+const emits = defineEmits(['update:visible']);
 
 // 拷贝一份父组件传递过来的visible
 const dialogVisible = ref<boolean>(props.visible);
 const handleClick = () => {
-  emits("update:visible", !props.visible);
+  emits('update:visible', !props.visible);
 };
 
 // 只能监听第一次的变化
@@ -52,7 +52,7 @@ watch(
 watch(
   () => dialogVisible.value,
   (val) => {
-    emits("update:visible", val);
+    emits('update:visible', val);
   }
 );
 

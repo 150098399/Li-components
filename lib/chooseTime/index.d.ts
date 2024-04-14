@@ -1,6 +1,7 @@
-import { App } from "vue";
-declare const _default: {
-  install(app: App): void;
-};
+import { App } from 'vue'
 
-export default _default;
+declare const _default: {
+  install(app: App): void
+}
+
+export default _default

@@ -55,6 +55,10 @@ const routes: RouteRecordRaw[] = [
         path: "/table",
         component: () => import("../views/table/index.vue"),
       },
+      {
+        path: "/bigForm",
+        component: () => import("../views/bigForm/index.vue"),
+      },
     ],
   },
 ];

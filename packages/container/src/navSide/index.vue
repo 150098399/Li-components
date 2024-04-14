@@ -80,6 +80,11 @@ const data = ref([
     name: '表格',
     index: '/table',
   },
+  {
+    icon: 'BigForm',
+    name: '大型表单',
+    index: '/bigForm',
+  },
 ]);
 </script>
 
