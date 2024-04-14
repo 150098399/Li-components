@@ -40,7 +40,7 @@ export default defineComponent({
       default: 'children'
     }
   },
-  setup(props, ctx) {
+  setup(props) {
     // 渲染无限层级菜单的方法
     const renderMenu = (data: any[]) => {
       
