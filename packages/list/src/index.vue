@@ -48,9 +48,9 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from "vue";
-import { ListOptions, ActionOptions, ListItem } from "./types";
-import { toLine } from "../../utils";
+import { PropType } from 'vue';
+import { ListOptions, ActionOptions, ListItem } from './types';
+import { toLine } from '../../utils';
 
 const props = defineProps({
   // 列表内容
@@ -66,13 +66,13 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["clickItem", "clickAction"]);
+const emits = defineEmits(['clickItem', 'clickAction']);
 const clickItem = (op: ListItem, index: number) => {
-  emits("clickItem", { op, index });
+  emits('clickItem', { op, index });
 };
 
 const clickAction = (action: ActionOptions, index: number) => {
-  emits("clickAction", { action, index });
+  emits('clickAction', { action, index });
 };
 </script>
 

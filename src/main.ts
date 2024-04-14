@@ -11,7 +11,7 @@ import mUI from "./components";
 import "./mock";
 
 // 全量打包测试
-// import mUI from "../lib/m-components";
+// import mUI from "../lib/index.js";
 // import "../lib/style.css";
 
 // 单组件打包测试

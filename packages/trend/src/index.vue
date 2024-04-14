@@ -20,56 +20,56 @@
 </template>
 
 <script lang="ts" setup>
-import { useSlots, computed } from "vue";
-import { toLine } from "../../utils";
+import { useSlots, computed } from 'vue';
+import { toLine } from '../../utils';
 
 const props = defineProps({
   // 上升(up)/下降(down)
   type: {
     type: String,
-    default: "up",
+    default: 'up',
   },
 
   // 文字
   text: {
     type: String,
-    default: "趋势",
+    default: '趋势',
   },
 
   // 上升图标
   upIcon: {
     type: String,
-    default: "ArrowUp",
+    default: 'ArrowUp',
   },
 
   // 下降图标
   downIcon: {
     type: String,
-    default: "ArrowDown",
+    default: 'ArrowDown',
   },
 
   // 上升趋势的图标颜色
   upIconColor: {
     type: String,
-    default: "#f5222d",
+    default: '#f5222d',
   },
 
   // 下降趋势的图标颜色
   downIconColor: {
     type: String,
-    default: "#52c41a",
+    default: '#52c41a',
   },
 
   // 上升趋势的文字颜色
   upTextColor: {
     type: String,
-    default: "rgb(0,0,0)",
+    default: 'rgb(0,0,0)',
   },
 
   // 下降趋势的文字颜色
   downTextColor: {
     type: String,
-    default: "rgb(0,0,0)",
+    default: 'rgb(0,0,0)',
   },
 
   // 颜色反转(只在默认颜色生效)
@@ -84,7 +84,7 @@ const slots = useSlots();
 
 // 文字颜色
 const textColor = computed(() => {
-  return props.type === "up" ? props.upTextColor : props.downTextColor;
+  return props.type === 'up' ? props.upTextColor : props.downTextColor;
 });
 </script>
 

@@ -19,19 +19,19 @@
 </template>
 
 <script lang="ts" setup>
-import { toLine } from "../../utils";
+import { toLine } from '../../utils';
 
 const props = defineProps({
   // 显示的图标
   icon: {
     type: String,
-    default: "Bell",
+    default: 'Bell',
   },
 
   // 通知的数量
   value: {
     type: [String, Number],
-    default: "",
+    default: '',
   },
 
   // 通知最大值
